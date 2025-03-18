@@ -1,0 +1,146 @@
+@import "../../../styles/vars.scss";
+
+.header {
+  padding: 40px 0;
+  border-bottom: 1px solid #ededed;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+  }
+
+  &__logo {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__logo-icon {
+    max-width: 28px;
+    max-height: 25px;
+  }
+
+  &__logo-cocntent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo-title {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $accent-color;
+  }
+
+  &__logo-text {
+    color: rgb(170, 170, 170);
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: $accent-color;
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border-radius: 15px;
+    background-color: $accent-color;
+    min-height: 50px;
+    padding: 10px 20px;
+    color:#fff;
+    font-weight: 700;
+
+    & > *:not(:last-child) {
+        padding-right: 13px;
+        border-right: 1px solid rgba(255, 255, 255, 0.65);;
+    }
+
+    &:hover {
+        .header {
+            &__cart-count-box {
+                opacity: 0;
+            }
+
+            &__cart-arrow {
+                transform: translate(5px, -50%);
+                opacity: 1;
+                visibility: visible;
+                transition: all .5s;
+            }
+        }
+    }
+  }
+
+  &__cart-price,
+  &__cart-count-box {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &--icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+  }
+
+  &__cart-count {
+    position: relative;
+  }
+
+  &__cart-count-box {
+    gap: 8px;
+    position: relative;
+    transition: all .2s;
+  }
+
+  &__cart-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-30px, -50%);
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+  }
+
+  .popup {
+    &__btn {
+      display: flex;
+      align-items: center;
+      border: 1px solid $accent-color;
+      border-radius: 15px;
+      background-color: rgb(255, 255, 255);
+      gap: 10px;
+      min-height: 50px;
+      padding: 10px 20px;
+      font-weight: 600;
+      color: $accent-color;
+    }
+
+    &__btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  }
+}

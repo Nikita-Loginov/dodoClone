@@ -1,0 +1,55 @@
+@import "../../../styles/vars.scss";
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    &__content {
+        display: inline-flex;
+    }
+
+    &__input {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+
+        &:checked + span {
+            background-color: $accent-color;
+
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__box {
+        display: inline-block;
+        border-radius: 8px;
+        background-color: rgb(241, 241, 241);  
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0; 
+        transition: all .2s;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:before {
+            content:"";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-image: url(/icons/check.svg);
+            transition: all .2s;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__text {
+        color: rgb(0, 0, 0);
+    }
+}

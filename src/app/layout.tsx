@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
-import '../styles/reset.scss';
-import '../styles/global.scss';
-import '../styles/vars.scss';
+import Header from "@/components/shared/Header";
+
+import "../styles/reset.scss";
+import "../styles/global.scss";
+import "../styles/vars.scss";
 
 const NunitoFont = Nunito({
   variable: "--font-nunito-sans",
@@ -24,9 +26,9 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${NunitoFont.variable}`}>
         <div className="wrapper">
-          <header className="header"></header>
+          <Header />
 
-          {children}
+          <main className="main">{children}</main>
         </div>
       </body>
     </html>

@@ -1,0 +1,35 @@
+.filter {
+  max-width: 244px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__title {
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    & > *:not(:last-child) {
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f7f7f7;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__price-title {
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+  }
+}

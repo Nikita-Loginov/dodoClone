@@ -1,7 +1,9 @@
+import Top from "@/components/modules/Home/Top";
+
 export default function Home() {
   return (
     <>
-      <h1>jfdkfls</h1>
+      <Top />
     </>
   );
 }

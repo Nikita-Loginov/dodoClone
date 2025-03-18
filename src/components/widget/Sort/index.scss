@@ -1,0 +1,68 @@
+@import "../../../styles/vars.scss";
+
+.sort {
+  position: relative;
+  font-weight: 700;
+  min-width: 210px;
+
+  &.open {
+    .sort__list {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0);
+    }
+  }
+
+  &__active {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 15px;
+    background-color: rgb(249, 250, 251);
+    padding: 15px 22px;
+  }
+
+  &__active-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: rgb(32, 32, 32);
+  }
+
+  &__active-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__active-text {
+    font-weight: 700;
+    color:$accent-color;
+  }
+
+  &__list {
+    opacity: 0;
+    transform: translateX(-20px);
+    visibility: hidden;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(249, 250, 251);
+    border-radius: 30px;
+    padding: 3px 0;
+    transition: all .5s;
+  }
+
+  &__link {
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover,
+    &.active {
+        color:$accent-color;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/vars.scss";
+
+.rangeSlider {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__numbers {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    &__number {
+        padding: 10px 15px;
+        min-height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        color: rgb(255, 255, 255);
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #678677;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        width: 100%;
+    }
+}

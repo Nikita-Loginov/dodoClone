@@ -1,0 +1,28 @@
+@import "../../../styles/vars.scss";
+
+.count {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    background-color: #678677;
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    min-width: 20px;
+    font-weight: 700;
+    color:#678677;
+    text-align: center;
+  }
+}

@@ -14,20 +14,22 @@ body {
 
 .main {
   flex: 1;
+  padding: 40px 0 100px;
 }
 
 body {
-  background-color: $accent-color;
+  background-color: #fff;
   color: $title-color;
   font-size: 16px;
-  font-size: 400px;
+  font-weight: 400;
   line-height: 1.37;
+  font-family: var(--font-nunito-sans);
 }
 
 h1 {
   font-size: 36px;
   font-weight: 800;
-  color: $title-color;
+  color: $accent-color;
 }
 
 .container {
