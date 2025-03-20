@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef} from "react";
 
 import Popup from "../Popup";
 
@@ -8,7 +8,8 @@ import { useTypeStore } from "@/store/type";
 import "./index.scss";
 
 const Type: React.FC = () => {
-  const [visibleCount, setVisibleCount] = useState<number>(5);
+  // const [visibleCount, setVisibleCount] = useState<number>(5);
+  const visibleCount: number = 5
   const { activeId, setActiveId, items } = useTypeStore();
   const typeBox = useRef<HTMLDivElement | null>(null);
 

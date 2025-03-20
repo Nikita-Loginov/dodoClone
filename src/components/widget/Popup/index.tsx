@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 import "./index.scss";
@@ -28,9 +28,11 @@ const Popup: React.FC<PopupProps> = ({
   func,
   visibleCount,
 }) => {
-  const [activeItem, setActiveItem] = useState<number>(
-    activeIndex ? activeIndex : -1
-  );
+  // const [activeItem, setActiveItem] = useState<number>(
+  //   activeIndex ? activeIndex : -1
+  // );
+
+  const activeItem = activeIndex ? activeIndex : -1
   const { activeId } = useTypeStore();
 
   return (
