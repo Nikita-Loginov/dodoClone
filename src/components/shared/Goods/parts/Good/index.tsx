@@ -4,12 +4,25 @@ import Count from "@/components/controls/Count";
 import "./index.scss";
 import Link from "next/link";
 
-const Good = () => {
+interface GoodProps {
+  id: number;
+  href: string;
+  srcImg: string;
+  name: string;
+  ingredients?: string;
+  price: number;
+}
+
+interface GoodComponentProps {
+  item: GoodProps;
+}
+
+const Good = ({item} : GoodComponentProps) => {
   return (
     <div className="good">
-      <Link className="good__img-box" href="/">
+      <Link className="good__img-box" href={item.href}>
         <img
-          src="https://media.dodostatic.net/image/r:584x584/0194d4fa65f277598a143a7ba341da53.avif"
+          src={`${item.srcImg}`}
           loading="lazy"
           alt="пицца"
           className="good__img"
@@ -18,9 +31,9 @@ const Good = () => {
 
       <div className="good__content">
         <header className="good__content-top">
-          <h3 className="good__name">Сырный цыпленок</h3>
+          <h3 className="good__name">{item.name}</h3>
 
-          <div className="good__ingredients">hfjlsdlfhs</div>
+          {item.ingredients && <div className="good__ingredients">{item.ingredients}</div>}
         </header>
 
         <div className="good__details">
@@ -28,7 +41,7 @@ const Good = () => {
             <span>от </span>
 
             <div className="good__price-num">
-              <span>395</span>
+              <span>{item.price}</span>
 
               <span>₽</span>
             </div>

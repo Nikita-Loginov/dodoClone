@@ -1,53 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Popup from "../Popup";
 
-import "./index.scss";
+import { useTypeStore } from "@/store/type";
 
-const items = [
-  {
-    id: 1,
-    text: "Мясные",
-    href: "/#meat",
-  },
-  {
-    id: 2,
-    text: "Острые",
-    href: "/#spicy",
-  },
-  {
-    id: 3,
-    text: "Сладкие",
-    href: "/#sweet",
-  },
-  {
-    id: 4,
-    text: "Вегетарианские",
-    href: "/#vegetarian",
-  },
-  {
-    id: 5,
-    text: "С курицей",
-    href: "/#chicken",
-  },
-  {
-    id: 6,
-    text: "Газировки",
-    href: "/#soda",
-  },
-  {
-    id: 7,
-    text: "Соки",
-    href: "/#juice",
-  },
-];
+import "./index.scss";
 
 const Type: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState<number>(5);
+  const { activeId, setActiveId, items } = useTypeStore();
+  const typeBox = useRef<HTMLDivElement | null>(null);
 
-  const handleClickLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    scrollBox(e);
+  const handleClickLink = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    index: number,
+  ) => {
+      scrollBox(e);
+      setActiveId(index);
   };
 
   const scrollBox = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -60,7 +30,7 @@ const Type: React.FC = () => {
       const box = document.querySelector(`#${href}`);
 
       if (box) {
-        const header = document.querySelector(".top") as HTMLElement; 
+        const header = document.querySelector(".top") as HTMLElement;
         const headerHeight = header ? header.offsetHeight : 0;
 
         const boxRect = box.getBoundingClientRect();
@@ -77,7 +47,7 @@ const Type: React.FC = () => {
   };
 
   return (
-    <div className="type">
+    <div className="type" ref={typeBox}>
       <div className="type__items">
         {items.slice(0, visibleCount).map((item) => (
           <a
@@ -85,15 +55,15 @@ const Type: React.FC = () => {
             href={item.href}
             title={item.text}
             aria-label={`посмотреть товары из типа "${item.text.toLowerCase()}"`}
-            className="type__item"
-            onClick={handleClickLink}
+            className={`type__item ${activeId === item.id ? "active" : ""}`}
+            onClick={(e) => handleClickLink(e, item.id)}
           >
             {item.text}
           </a>
         ))}
       </div>
 
-      <Popup items={[...items.slice(visibleCount)]}>
+      <Popup items={[...items.slice(visibleCount)]} visibleCount={visibleCount} func={handleClickLink}>
         <p className="type__more-text">Ещё </p>
 
         <span className="type__more-icon">

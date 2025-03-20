@@ -42,7 +42,8 @@
     max-width: 300%;
   }
 
-  &__link {
+  &__item {
+    display: block;
     padding: 10px 17px;
     color: rgb(0, 0, 0);
     font-size: 14px;
@@ -58,6 +59,10 @@
 
     &:hover {
       background-color: rgba($accent-color, 0.1);
+    }
+
+    &.activeType {
+      color: $accent-color;
     }
   }
 }
